@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Página Listagem</title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+ 
+
+</head>
+
+<body>
+
+<table class="table table-striped ">
+ 
+  <thead>
+    <tr>
+      <th scope="col">codigo</th>
+      <th scope="col">titulo</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Preço</th>
+      <th scope="col">ISBN </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each = "livro:${livro}">
+      <td th:text = "${livro.codigo}"> </td >
+      <td th:text = "${livro.titulo}"> </td>
+      <td th:text = "${livro.autor}"> </td>
+       <td th:text ="${livro.preco"> </td>
+       <td th:text ="${livro.iSBN}"> </td>
+       	<td> <a th:href="@{/livro/excluir/{codigo}(codigo = ${livro.codigo})}" class="btn btn-danger"> Excluir</a> </td>
+	    <td> <a th:href="@{/livro/atualizar/{codigo}(codigo = ${livro.codigo})}" class="btn btn-primary">Atualizar </a></td>
+    </tr>
+    
+    
+    
+  </tbody >
+</table>
+  
+
+
+
+
+<src="/js/bootstrap.min.js" /> 
+
+</body>
+
+</html>

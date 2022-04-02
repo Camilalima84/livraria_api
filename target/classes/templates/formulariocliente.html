@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  
+  <title>FormularioCliente</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> </head>
+<style> 
+
+.container{
+	display:flex;
+ 	justify-content: center;
+ 	flex-direction: column;
+ 	align-items: center;
+ 	width: 100%;
+ 	height: 100vh;
+}
+
+.form-style {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+ 	align-items: center;
+}
+
+.input-style {
+	width: 100%;
+}
+
+label {
+	margin-right: auto;
+}
+
+</style>
+<body>
+
+<section class="container">
+
+<h3>Cadastro</h3>
+ 
+<form class="form-style"  action="/cliente/listar" method="POST" th:object="${cliente}" encitype="multipart/form-data">
+ <input type="hidden" th:field="*{codigo}">
+
+<label>Nome:</label>
+<input class="input-style" type= "text" th:field="*{nome}"> </br>
+ 
+ <label>Data de nascimento:</label>
+ <input class="input-style" type="text" th:field="*{dataNascimento}"> </br>
+ 
+ <label>Profissão:</label>
+  <input class="input-style" type="text" th:field="*{profissao}"> </br>
+ 
+ <label>CPF:</label>
+ <input class="input-style" type="text" th:field="*{cpf}"><br>
+
+<div>
+	<button th:if="${cliente.codigo == null}" th:text="Cadastrar"> </button>
+	<button th:if="${cliente.codigo == null}" th:text="Atualizar"> </button>
+</div>
+
+
+</form >
+ 
+</section>
+
+</body>
+
+
+</html>
+
+
